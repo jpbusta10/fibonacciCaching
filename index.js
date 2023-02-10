@@ -1,21 +1,21 @@
-function memoization(fn){
-    let cache = {};
-    return (...args) =>{
-        let key = args.join(',');
-        if(key in cache){
-            return cache[key];
-        }
-        cache[key] = fn.apply(null, args);
-        return cache[key];
+const cacheMap = new Map();
+function fibMap(n) {
+    if (cacheMap.has(n)) {
+        return cacheMap.get(n);
     }
+    let result = 1;
+    if (n <= 1) {
+        result = n;
+    } else {
+        result = fibMap(n - 1) + fibMap(n - 2);
+    }
+    cacheMap.set(n, result);
+    return result;
+}
+const cacheWm = new WeakMap();
+function FibWm(n){
+    
 }
 
-
-const fib = memoization((n) => {
-    if(n<=1){
-        return n;
-    }
-    return fib(n-1) + fib(n-2);
-});
-
-console.log(fib(8));
+//console.log(fibMap(100));
+console.log(FibWm(100))
