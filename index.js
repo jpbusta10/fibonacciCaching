@@ -12,9 +12,9 @@ function fibMap(n) {
     cacheMap.set(n, result);
     return result;
 }
-const cacheWm = new WeakMap();
+/*const cacheWm = new WeakMap();
 
-f/*unction fibWn(n){
+function fibWn(n){
     let key = {};
     key = valueOf(n);
     if(cacheWm.has(key)){
