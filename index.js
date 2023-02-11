@@ -16,7 +16,6 @@ function fibMap(n) {
 
 function fibWn(n){
     let key = {};
-    key = valueOf(n);
     if(cacheWm.has(key)){
         return cacheWm.get(n);
     }
