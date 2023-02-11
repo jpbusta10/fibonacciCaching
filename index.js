@@ -12,21 +12,24 @@ function fibMap(n) {
     cacheMap.set(n, result);
     return result;
 }
-/*const cacheWm = new WeakMap();
+const cacheWn = new WeakMap();
 
-function fibWn(n){
-    let key = {};
-    if(cacheWm.has(key)){
-        return cacheWm.get(n);
-    }
-    let result = 1;
-    if(n<=1){
-        result = n;
-    }else{
-        result = fibWn(n-1) + fibMap(n-2)
-    }
-    cacheWm.set(n, result);
-}*/
+function fibWn(n) {
+  if (cacheWn.has(n)) {
+    return cacheWn.get(n);
+  }
+
+  if (n <= 1) {
+    return n;
+  }
+
+  const result = fibWn(n - 1) + fibWn(n - 2);
+  cacheWn.set({n: n}, result);
+  return result;
+}
+
+
+
 console.log(fibMap(100));
+console.log(fibWn(20));
 
-//console.log(fibWn(100));
