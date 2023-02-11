@@ -13,9 +13,21 @@ function fibMap(n) {
     return result;
 }
 const cacheWm = new WeakMap();
-function FibWm(n){
-    
-}
 
-//console.log(fibMap(100));
-console.log(FibWm(100))
+f/*unction fibWn(n){
+    let key = {};
+    key = valueOf(n);
+    if(cacheWm.has(key)){
+        return cacheWm.get(n);
+    }
+    let result = 1;
+    if(n<=1){
+        result = n;
+    }else{
+        result = fibWn(n-1) + fibMap(n-2)
+    }
+    cacheWm.set(n, result);
+}*/
+console.log(fibMap(100));
+
+//console.log(fibWn(100));
