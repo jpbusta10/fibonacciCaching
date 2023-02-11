@@ -1,5 +1,5 @@
 const cacheMap = new Map();
-function fibMap(n) {
+function fibMap(n) { ///function using Map
     if (cacheMap.has(n)) {
         return cacheMap.get(n);
     }
@@ -14,7 +14,7 @@ function fibMap(n) {
 }
 const cacheWn = new WeakMap();
 
-function fibWn(n) {
+function fibWn(n) {         ///function using weakMap
   if (cacheWn.has(n)) {
     return cacheWn.get(n);
   }
@@ -24,7 +24,7 @@ function fibWn(n) {
   }
 
   const result = fibWn(n - 1) + fibWn(n - 2);
-  cacheWn.set({n: n}, result);
+  cacheWn.set({n: n}, result);   /// transform n to object
   return result;
 }
 
