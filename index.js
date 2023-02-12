@@ -14,22 +14,24 @@ function fibMap(n) { ///function using Map
 }
 const cacheWn = new WeakMap();
 
-function fibWn(n) {         ///function using weakMap
-  if (cacheWn.has(n)) {
-    return cacheWn.get(n);
+function fibWn(n) {
+  if (cacheWn.has({n: n})) {
+    console.log(`Returning cached value for n=${n}`);
+    return cacheWn.get({n: n});
   }
 
   if (n <= 1) {
+    cacheWn.set({n: n}, n);
     return n;
   }
 
   const result = fibWn(n - 1) + fibWn(n - 2);
-  cacheWn.set({n: n}, result);   /// transform n to object
+  cacheWn.set({n: n}, result);
   return result;
 }
 
-
+console.log(fibWn(20));
 
 console.log(fibMap(100));
-console.log(fibWn(20));
+
 
